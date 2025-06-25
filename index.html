@@ -7,10 +7,105 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Document</title>
     </head>
+<!--    <body>-->
+
+<!--        <button id="changeLocation">Promjeni lokaciju</button>-->
+<!--        <button id="showWeatherForMyLocation">Prikazi prognozu za moju lokaciju</button>-->
+
+<!--        <script src="dist/script.min.js"></script>-->
+<!--    </body>-->
+
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to right, #83a4d4, #b6fbff);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            margin-top: 80px;
+            background: #ffffffdd;
+            padding: 30px 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            text-align: center;
+            width: 320px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 80%;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            margin-bottom: 15px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            margin-bottom: 5px;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        .weather-box {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .weather-box p {
+            margin: 6px 0;
+            font-size: 16px;
+        }
+
+        .weather-icon {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .city-name {
+            font-size: 22px;
+            font-weight: bold;
+        }
+    </style>
+    </head>
     <body>
 
+    <div class="container">
+        <h1>Weather Forecast</h1>
+        <br />
         <button id="changeLocation">Promjeni lokaciju</button>
+        <button id="showWeatherForMyLocation">Prikazi prognozu za moju lokaciju</button>
 
-        <script src="dist/script.min.js"></script>
+        <div class="weather-box">
+            <div class="weather-icon">🌤️</div>
+            <div class="city-name"></div>
+            <p class="city-temp"></p>
+            <div class="upcoming-temps">
+
+            </div>
+        </div>
+    </div>
+
+
+    <script src="dist/script.min.js"></script>
     </body>
+
 </html>

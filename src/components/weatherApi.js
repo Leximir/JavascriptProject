@@ -1,28 +1,48 @@
 import axios from "axios";
-
-const apiKey = 'b6874aea855542958f4191441251902';
-
 export async function getCurrentWeatherForLocation(location){
-    const response = await axios.get("https://api.weatherapi.com/v1/current.json", {
-        params: {
-            key: apiKey,
-            q: location,
-            aqi: "no"
-        }
-    });
 
-    return response;
+
+    try{
+        return await axios.get(process.env.API_URL+"/v1/current.json", {
+            params: {
+                key: process.env.API_KEY,
+                q: location,
+                aqi: "no"
+            }
+        });
+    } catch (exception) {
+        return alert("Something went wrong with getting the current weather location !");
+    }
 }
 
 export async function getWeatherForUpcomingDays(location, days){
-    return await axios.get("https://api.weatherapi.com/v1/forecast.json", {
-        params: {
-            key: apiKey,
-            aqi: 'no',
-            alerts: 'no',
-            days: days,
-            q: location
-        }
-    });
-    // https://api.weatherapi.com/v1/forecast.json?key=b6874aea855542958f4191441251902 &q=London&days=3&aqi=no&alerts=no
+
+    try{
+        return await axios.get(process.env.API_URL+"/v1/forecast.json", {
+            params: {
+                key: process.env.API_KEY,
+                aqi: 'no',
+                alerts: 'no',
+                days: days,
+                q: location
+            }
+        });
+    } catch (exception) {
+        return alert("Something went wrong with getting the weather for upcoming days !");
+    }
+}
+
+export async function getWeatherInFuture(location, date){
+
+    try{
+        return await axios.get(process.env.API_URL+"/v1/future.json", {
+            params: {
+                key: process.env.API_KEY,
+                dt: date,
+                q: location
+            }
+        });
+    } catch (exception) {
+        return alert("Something went wrong with getting the future weather !");
+    }
 }
